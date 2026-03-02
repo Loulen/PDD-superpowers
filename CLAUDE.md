@@ -9,8 +9,8 @@ bash scripts/sync-clones.sh
 ```
 
 This does two things:
-1. Pulls the latest changes into `~/.claude/superpowers`, `~/.codex/superpowers`, and `~/.config/opencode/superpowers` (whichever exist as git clones).
-2. Re-adds the Claude Code plugin via `claude plugin add` to refresh its cache (Claude Code copies plugins into `~/.claude/plugins/cache/` at install time, so a `git pull` alone is not enough).
+1. Pulls the latest changes into `~/.codex/superpowers` and `~/.config/opencode/superpowers` (whichever exist as git clones).
+2. Updates the Claude Code plugin via `claude plugin update "superpowers@superpowers-dev"` to refresh its cache (Claude Code uses a marketplace system — the repo is registered as a local marketplace and plugin files are copied into `~/.claude/plugins/cache/` at install time).
 
 See `UPDATE.md` for full details on deployment locations and platform-specific behavior.
 
@@ -36,7 +36,7 @@ support the same capabilities. Consult this matrix when making changes.
 | TodoWrite               | Yes               | Via `update_plan`  | Via `update_plan`       |
 | Skill invocation        | `Skill` tool      | Auto-discovery     | Native `skill` tool     |
 | Hooks (SessionStart)    | Yes               | No                 | Yes (system.transform)  |
-| Plugin caching          | Yes (must re-add) | No (live symlink)  | No (live symlink)       |
+| Plugin caching          | Yes (marketplace + update) | No (live symlink)  | No (live symlink)       |
 | Git worktrees           | Yes               | Yes                | Yes                     |
 | Parallel agent dispatch | Yes               | No                 | Yes (via @mention)      |
 

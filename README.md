@@ -30,19 +30,24 @@ Thanks!
 
 ### Claude Code
 
-1. **Clone the repository:**
+1. **Clone the repository** (anywhere you like):
    ```bash
-   git clone https://github.com/Loulen/PDD-superpowers.git ~/.claude/superpowers
+   git clone https://github.com/Loulen/PDD-superpowers.git ~/superpowers
    ```
 
-2. **Install as a local plugin** (copies into the plugin cache):
+2. **Register it as a local marketplace:**
    ```bash
-   claude plugin add ~/.claude/superpowers
+   claude plugin marketplace add ~/superpowers
    ```
 
-3. **Restart Claude Code** to load the plugin.
+3. **Install the plugin:**
+   ```bash
+   claude plugin install "superpowers@superpowers-dev"
+   ```
 
-> **Note:** Claude Code caches plugins at install time. After pulling updates into `~/.claude/superpowers`, you must re-run `claude plugin add ~/.claude/superpowers` to refresh the cache. The `scripts/sync-clones.sh` script handles this automatically.
+4. **Restart Claude Code** to load the plugin.
+
+> **Note:** Claude Code caches plugins at install time. After pulling updates into your clone, run `claude plugin update "superpowers@superpowers-dev"` to refresh the cache. The `scripts/sync-clones.sh` script handles this automatically.
 
 ### Codex
 
@@ -107,6 +112,12 @@ Start a new session in your chosen platform and ask for something that should tr
 - **using-git-worktrees** - Parallel development branches
 - **finishing-a-development-branch** - Merge/PR decision workflow
 - **subagent-driven-development** - Fast iteration with two-stage review (spec compliance, then code quality)
+
+**Verification**
+- **actionable-acceptance-criteria** - Concrete verification steps for acceptance criteria
+
+**Visual**
+- **mermaid-diagrams** - Minimal sequence/flowchart diagrams at key workflow points
 
 **Meta**
 - **writing-skills** - Create new skills following best practices (includes testing methodology)

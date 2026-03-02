@@ -3,7 +3,6 @@ set -euo pipefail
 
 # Locations where superpowers is cloned for each coding agent
 LOCATIONS=(
-  "$HOME/.claude/superpowers"
   "$HOME/.codex/superpowers"
   "$HOME/.config/opencode/superpowers"
 )
@@ -17,13 +16,19 @@ for dir in "${LOCATIONS[@]}"; do
   fi
 done
 
-# Claude Code copies plugins into a cache, so a git pull alone is not enough.
-# Re-add the plugin to refresh the cached copy.
-if [ -d "$HOME/.claude/superpowers/.claude-plugin" ]; then
-  echo "Re-adding Claude Code plugin (refreshing cache) ..."
-  claude plugin add "$HOME/.claude/superpowers" 2>/dev/null \
+# Claude Code uses a marketplace + plugin cache system.
+# The marketplace points to a local git clone (e.g. the codex or personal clone).
+# After pulling, update the plugin to refresh the cached copy.
+if command -v claude &>/dev/null; then
+  echo "Updating Claude Code plugin cache ..."
+  # First update the marketplace index (picks up new commits from the local clone)
+  env -u CLAUDECODE claude plugin marketplace update superpowers-dev 2>/dev/null || true
+  # Then update the installed plugin (copies new files into the cache)
+  env -u CLAUDECODE claude plugin update "superpowers@superpowers-dev" 2>/dev/null \
     && echo "Claude Code plugin cache updated." \
-    || echo "Warning: 'claude' CLI not found or plugin add failed. Re-add manually with: claude plugin add ~/.claude/superpowers"
+    || echo "Warning: plugin update failed. Run manually: claude plugin update 'superpowers@superpowers-dev'"
+else
+  echo "Skipping Claude Code (claude CLI not found)"
 fi
 
 echo "Done. Restart OpenCode if it was running."
