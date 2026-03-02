@@ -26,37 +26,30 @@ Thanks!
 
 ## Installation
 
-**Note:** Installation differs by platform. Claude Code or Cursor have built-in plugin marketplaces. Codex and OpenCode require manual setup.
+**Note:** Installation differs by platform. All platforms use a manual git clone workflow.
 
+### Claude Code
 
-### Claude Code (via Plugin Marketplace)
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Loulen/PDD-superpowers.git ~/.claude/superpowers
+   ```
 
-In Claude Code, register the marketplace first:
+2. **Install as a local plugin** (copies into the plugin cache):
+   ```bash
+   claude plugin add ~/.claude/superpowers
+   ```
 
-```bash
-/plugin marketplace add obra/superpowers-marketplace
-```
+3. **Restart Claude Code** to load the plugin.
 
-Then install the plugin from this marketplace:
-
-```bash
-/plugin install superpowers@superpowers-marketplace
-```
-
-### Cursor (via Plugin Marketplace)
-
-In Cursor Agent chat, install from marketplace:
-
-```text
-/plugin-add superpowers
-```
+> **Note:** Claude Code caches plugins at install time. After pulling updates into `~/.claude/superpowers`, you must re-run `claude plugin add ~/.claude/superpowers` to refresh the cache. The `scripts/sync-clones.sh` script handles this automatically.
 
 ### Codex
 
 Tell Codex:
 
 ```
-Fetch and follow instructions from https://raw.githubusercontent.com/obra/superpowers/refs/heads/main/.codex/INSTALL.md
+Fetch and follow instructions from https://raw.githubusercontent.com/Loulen/PDD-superpowers/refs/heads/main/.codex/INSTALL.md
 ```
 
 **Detailed docs:** [docs/README.codex.md](docs/README.codex.md)
@@ -66,7 +59,7 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superp
 Tell OpenCode:
 
 ```
-Fetch and follow instructions from https://raw.githubusercontent.com/obra/superpowers/refs/heads/main/.opencode/INSTALL.md
+Fetch and follow instructions from https://raw.githubusercontent.com/Loulen/PDD-superpowers/refs/heads/main/.opencode/INSTALL.md
 ```
 
 **Detailed docs:** [docs/README.opencode.md](docs/README.opencode.md)
@@ -141,11 +134,13 @@ See `skills/writing-skills/SKILL.md` for the complete guide.
 
 ## Updating
 
-Skills update automatically when you update the plugin:
+Run the sync script to pull changes and refresh all deployed copies:
 
 ```bash
-/plugin update superpowers
+bash scripts/sync-clones.sh
 ```
+
+See [UPDATE.md](UPDATE.md) for details on what the script does for each platform.
 
 ## License
 
@@ -153,5 +148,5 @@ MIT License - see LICENSE file for details
 
 ## Support
 
-- **Issues**: https://github.com/obra/superpowers/issues
-- **Marketplace**: https://github.com/obra/superpowers-marketplace
+- **Issues**: https://github.com/Loulen/PDD-superpowers/issues
+- **Upstream**: https://github.com/obra/superpowers
