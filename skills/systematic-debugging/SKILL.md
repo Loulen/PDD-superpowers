@@ -63,6 +63,14 @@ You MUST complete each phase before proceeding to the next.
    - Does it happen every time?
    - If not reproducible → gather more data, don't guess
 
+   **After reproducing, render expected-vs-actual diagram:**
+
+   Invoke `superpowers:mermaid-diagrams` to show:
+   - A sequence diagram of **expected behavior** (what should happen)
+   - vs **actual behavior** (what is happening)
+
+   This helps visualize where the flow diverges.
+
 3. **Check Recent Changes**
    - What changed that could cause this?
    - Git diff, recent commits
@@ -286,6 +294,7 @@ These techniques are part of systematic debugging and available in this director
 **Related skills:**
 - **superpowers:test-driven-development** - For creating failing test case (Phase 4, Step 1)
 - **superpowers:verification-before-completion** - Verify fix worked before claiming success
+- **superpowers:mermaid-diagrams** - Visualize expected vs actual behavior during investigation
 
 ## Real-World Impact
 

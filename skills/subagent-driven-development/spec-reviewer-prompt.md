@@ -53,6 +53,12 @@ Task tool (general-purpose):
     - Did they solve the wrong problem?
     - Did they implement the right feature but wrong way?
 
+    **Acceptance criteria verification:**
+    - Does each acceptance criterion have a concrete verification step?
+    - Were the verification steps actually executed (not just inspected)?
+    - Is there evidence of real interaction (command output, API response, query result)?
+    - Flag any criterion that was "verified" only by reading code — that's not verification
+
     **Verify by reading code, not by trusting report.**
 
     Report:

@@ -87,6 +87,12 @@ git commit -m "feat: add specific feature"
 ```
 ````
 
+## Acceptance Criteria
+
+**REQUIRED SUB-SKILL:** Use superpowers:actionable-acceptance-criteria when writing acceptance criteria for each task.
+
+Every task's acceptance criteria MUST include concrete verification steps — commands to run, endpoints to call, queries to execute, or observable effects to check. Never write criteria that can only be verified by reading code.
+
 ## Remember
 - Exact file paths always
 - Complete code in plan (not "add validation")
@@ -94,23 +100,20 @@ git commit -m "feat: add specific feature"
 - Reference relevant skills with @ syntax
 - DRY, YAGNI, TDD, frequent commits
 
+## After Saving the Plan
+
+**Render a mermaid diagram** (invoke `superpowers:mermaid-diagrams`) showing a high-level overview of the plan's task flow. Tell the user where the plan is saved.
+
 ## Execution Handoff
 
-After saving the plan, offer execution choice:
+After saving the plan, proceed directly with subagent-driven development:
 
-**"Plan complete and saved to `docs/plans/<filename>.md`. Two execution options:**
+**"Plan complete and saved to `docs/plans/<filename>.md`. Proceeding with subagent-driven execution."**
 
-**1. Subagent-Driven (this session)** - I dispatch fresh subagent per task, review between tasks, fast iteration
-
-**2. Parallel Session (separate)** - Open new session with executing-plans, batch execution with checkpoints
-
-**Which approach?"**
-
-**If Subagent-Driven chosen:**
 - **REQUIRED SUB-SKILL:** Use superpowers:subagent-driven-development
 - Stay in this session
 - Fresh subagent per task + code review
 
-**If Parallel Session chosen:**
-- Guide them to open new session in worktree
-- **REQUIRED SUB-SKILL:** New session uses superpowers:executing-plans
+**Platform fallback:** If the platform does not support subagents (e.g. Codex — no Task tool available), fall back to `superpowers:executing-plans` for sequential batch execution. Guide the user to open a new session in the worktree.
+
+**User override:** If the user explicitly requests a parallel session or executing-plans, honor that request.

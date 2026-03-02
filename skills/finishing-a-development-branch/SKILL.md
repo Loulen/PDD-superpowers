@@ -9,7 +9,7 @@ description: Use when implementation is complete, all tests pass, and you need t
 
 Guide completion of development work by presenting clear options and handling chosen workflow.
 
-**Core principle:** Verify tests → Present options → Execute choice → Clean up.
+**Core principle:** Verify tests → Summarize work → Present options → Execute choice → Clean up → Update tracker.
 
 **Announce at start:** "I'm using the finishing-a-development-branch skill to complete this work."
 
@@ -46,7 +46,13 @@ git merge-base HEAD main 2>/dev/null || git merge-base HEAD master 2>/dev/null
 
 Or ask: "This branch split from main - is that correct?"
 
-### Step 3: Present Options
+### Step 3: Summarize Work Done
+
+**Before presenting options, render a mermaid diagram** (invoke `superpowers:mermaid-diagrams`) showing a high-level summary of all work done on the branch. Use `git log --oneline <base>..HEAD` to understand the scope.
+
+Present the diagram to the user along with a brief text summary.
+
+### Step 4: Present Options
 
 Present exactly these 4 options:
 
@@ -63,7 +69,7 @@ Which option?
 
 **Don't add explanation** - keep options concise.
 
-### Step 4: Execute Choice
+### Step 5: Execute Choice
 
 #### Option 1: Merge Locally
 
@@ -84,7 +90,7 @@ git merge <feature-branch>
 git branch -d <feature-branch>
 ```
 
-Then: Cleanup worktree (Step 5)
+Then: Cleanup worktree (Step 6)
 
 #### Option 2: Push and Create PR
 
@@ -103,7 +109,7 @@ EOF
 )"
 ```
 
-Then: Cleanup worktree (Step 5)
+Then: Cleanup worktree (Step 6)
 
 #### Option 3: Keep As-Is
 
@@ -131,11 +137,11 @@ git checkout <base-branch>
 git branch -D <feature-branch>
 ```
 
-Then: Cleanup worktree (Step 5)
+Then: Cleanup worktree (Step 6)
 
-### Step 5: Cleanup Worktree
+### Step 6: Cleanup Worktree
 
-**For Options 1, 2, 4:**
+**For Options 1, 2, 4 (from Step 5):**
 
 Check if in worktree:
 ```bash
@@ -148,6 +154,19 @@ git worktree remove <worktree-path>
 ```
 
 **For Option 3:** Keep worktree.
+
+### Step 7: Update Task Tracker
+
+**After executing the chosen option (Steps 5-6):**
+
+If vibe-kanban MCP tools are available (test by calling `get_context`):
+
+1. Ask the user: "Is this task done?"
+2. If **yes**: Update the linked issue status to "Done" via `update_issue`
+3. If **not done**: Ask if the status should be updated to something else (e.g., "In Review" for PRs)
+4. If **no vibe-kanban**: Skip this step silently
+
+**This step runs for ALL options** (merge, PR, keep, discard) — the task status is independent of the git integration choice.
 
 ## Quick Reference
 
@@ -198,3 +217,5 @@ git worktree remove <worktree-path>
 
 **Pairs with:**
 - **using-git-worktrees** - Cleans up worktree created by that skill
+- **superpowers:mermaid-diagrams** - Summarize work done before presenting options
+- **vibe-kanban MCP** - Updates task status after branch integration (if available)
