@@ -10,7 +10,7 @@ bash scripts/sync-clones.sh
 
 This does two things:
 1. Pulls the latest changes into `~/.codex/superpowers` and `~/.config/opencode/superpowers` (whichever exist as git clones).
-2. Updates the Claude Code plugin via `claude plugin update "superpowers@superpowers-dev"` to refresh its cache (Claude Code uses a marketplace system — the repo is registered as a local marketplace and plugin files are copied into `~/.claude/plugins/cache/` at install time).
+2. Updates the Claude Code plugin via `claude plugin update "pdd-superpowers@superpowers-dev"` to refresh its cache (Claude Code uses a marketplace system — the repo is registered as a local marketplace and plugin files are copied into `~/.claude/plugins/cache/` at install time).
 
 See `UPDATE.md` for full details on deployment locations and platform-specific behavior.
 

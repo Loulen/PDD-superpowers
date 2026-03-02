@@ -42,12 +42,12 @@ Thanks!
 
 3. **Install the plugin:**
    ```bash
-   claude plugin install "superpowers@superpowers-dev"
+   claude plugin install "pdd-superpowers@superpowers-dev"
    ```
 
 4. **Restart Claude Code** to load the plugin.
 
-> **Note:** Claude Code caches plugins at install time. After pulling updates into your clone, run `claude plugin update "superpowers@superpowers-dev"` to refresh the cache. The `scripts/sync-clones.sh` script handles this automatically.
+> **Note:** Claude Code caches plugins at install time. After pulling updates into your clone, run `claude plugin update "pdd-superpowers@superpowers-dev"` to refresh the cache. The `scripts/sync-clones.sh` script handles this automatically.
 
 ### Codex
 

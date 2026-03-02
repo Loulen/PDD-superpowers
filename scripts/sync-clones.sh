@@ -24,9 +24,9 @@ if command -v claude &>/dev/null; then
   # First update the marketplace index (picks up new commits from the local clone)
   env -u CLAUDECODE claude plugin marketplace update superpowers-dev 2>/dev/null || true
   # Then update the installed plugin (copies new files into the cache)
-  env -u CLAUDECODE claude plugin update "superpowers@superpowers-dev" 2>/dev/null \
+  env -u CLAUDECODE claude plugin update "pdd-superpowers@superpowers-dev" 2>/dev/null \
     && echo "Claude Code plugin cache updated." \
-    || echo "Warning: plugin update failed. Run manually: claude plugin update 'superpowers@superpowers-dev'"
+    || echo "Warning: plugin update failed. Run manually: claude plugin update 'pdd-superpowers@superpowers-dev'"
 else
   echo "Skipping Claude Code (claude CLI not found)"
 fi
