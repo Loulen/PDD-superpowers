@@ -85,13 +85,26 @@ Expected: PASS
 git add tests/path/test.py src/path/file.py
 git commit -m "feat: add specific feature"
 ```
+
+**Acceptance Criteria:**
+
+**REQUIRED SUB-SKILL:** Use superpowers:actionable-acceptance-criteria
+
+Each criterion is a verification *action* — something you execute, call, observe, or query to prove the task works. Not a code-inspection statement.
+
+- [ ] [Action]: [What to do — run command, call endpoint, observe UI, query state]
+      Expected: [What you should see]
+- [ ] [Action]: [Another verification action]
+      Expected: [Expected result]
 ````
 
 ## Acceptance Criteria
 
 **REQUIRED SUB-SKILL:** Use superpowers:actionable-acceptance-criteria when writing acceptance criteria for each task.
 
-Every task's acceptance criteria MUST include concrete verification steps — commands to run, endpoints to call, queries to execute, or observable effects to check. Never write criteria that can only be verified by reading code.
+Every task MUST include an `**Acceptance Criteria:**` block (see Task Structure above). Each criterion must be a concrete verification *action* — something the implementer can execute, call, observe, or query. Never write criteria that can only be verified by reading code.
+
+Actions include: running commands, calling endpoints, observing UI behavior, querying databases, checking logs, or any interaction from the actionable-acceptance-criteria verification hierarchy.
 
 ## Remember
 - Exact file paths always
