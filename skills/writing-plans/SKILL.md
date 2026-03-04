@@ -15,7 +15,7 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 
 **Context:** This should be run in a dedicated worktree (created by brainstorming skill).
 
-**Save plans to:** `docs/plans/YYYY-MM-DD-<feature-name>.md`
+**Save plans to:** `ai_docs/YYYY-MM-DD-<feature-name>.md`
 
 ## Bite-Sized Task Granularity
 
@@ -121,7 +121,7 @@ Actions include: running commands, calling endpoints, observing UI behavior, que
 
 After saving the plan, proceed directly with subagent-driven development:
 
-**"Plan complete and saved to `docs/plans/<filename>.md`. Proceeding with subagent-driven execution."**
+**"Plan complete and saved to `ai_docs/<filename>.md`. Proceeding with subagent-driven execution."**
 
 - **REQUIRED SUB-SKILL:** Use superpowers:subagent-driven-development
 - Stay in this session
