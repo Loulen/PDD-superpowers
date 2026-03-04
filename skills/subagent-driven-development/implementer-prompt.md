@@ -31,7 +31,11 @@ Task tool (general-purpose):
     Once you're clear on requirements:
     1. Implement exactly what the task specifies
     2. Write tests (following TDD if task says to)
-    3. Verify implementation works
+    3. **Execute every acceptance criterion action**
+       - Each criterion in the task is a verification *action* — a command to run, endpoint to call, UI behavior to observe, state to query
+       - Execute each one. Paste the evidence: command output, response body, observation description
+       - If an action cannot be performed (deps not installed, no browser available, service not running), **flag it as blocked** — do NOT skip silently
+       - REQUIRED SUB-SKILL: superpowers:verification-before-completion — no completion claims without fresh evidence
     4. Commit your work
     5. Self-review (see below)
     6. Report back
@@ -71,7 +75,8 @@ Task tool (general-purpose):
 
     When done, report:
     - What you implemented
-    - What you tested and test results
+    - Acceptance criteria results: for each criterion, what action you took and what you observed (paste output/evidence)
+    - Blocked criteria: any acceptance criteria you could not execute, and why
     - Files changed
     - Self-review findings (if any)
     - Any issues or concerns
