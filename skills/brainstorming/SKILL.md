@@ -15,6 +15,24 @@ Start by understanding the current project context, then ask questions one at a 
 Do NOT invoke any implementation skill, write any code, scaffold any project, or take any implementation action until you have presented a design and the user has approved it. This applies to EVERY project regardless of perceived simplicity.
 </HARD-GATE>
 
+## Fast Mode: Small Tasks With Sufficient Context
+
+When ALL of these conditions are true, skip iterative questioning and present a complete design in one message:
+
+1. **Scope is narrow** — touches 1-3 files, single concern
+2. **Intent is unambiguous** — the user's request contains enough detail to design without clarifying questions
+3. **No architectural decisions** — no new patterns, no technology choices, no trade-offs worth debating
+
+In fast mode:
+- Explore project context (still required — read the relevant files)
+- Present the complete design in one message: what changes, where, and why
+- Ask for approval once
+- On approval, proceed directly to writing-plans
+
+Fast mode still produces a design and still requires user approval. It just compresses steps 2-3 of the checklist (clarifying questions and approach proposals) into the design presentation itself.
+
+**When in doubt, use the full process.** Fast mode is for tasks where the user has already told you exactly what they want and the codebase makes the approach obvious.
+
 ## Anti-Pattern: "This Is Too Simple To Need A Design"
 
 Every project goes through this process. A todo list, a single-function utility, a config change — all of them. "Simple" projects are where unexamined assumptions cause the most wasted work. The design can be short (a few sentences for truly simple projects), but you MUST present it and get approval.
@@ -73,6 +91,7 @@ digraph brainstorming {
 - Scale each section to its complexity: a few sentences if straightforward, up to 200-300 words if nuanced
 - Ask after each section whether it looks right so far
 - Cover: architecture, components, data flow, error handling, testing
+- **Data flow section:** Render a mermaid sequence diagram (invoke `superpowers:mermaid-diagrams`) showing how components interact — this is the most natural fit for showing request/response flows, event propagation, and system boundaries
 - Be ready to go back and clarify if something doesn't make sense
 
 ## After the Design
