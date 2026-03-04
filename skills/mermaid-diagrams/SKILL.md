@@ -49,4 +49,5 @@ This skill is invoked at specific workflow points. At each point, the diagram se
 | subagent-driven-development | After a subagent completes a task | Show what was built and how components interact |
 | finishing-a-development-branch | Before presenting options | Summarize all work done on the branch |
 | systematic-debugging | During investigation | Show expected behavior vs actual behavior |
+| brainstorming | During design presentation | Show data flow between components as a sequence diagram |
 | writing-plans | After plan is saved | Show overview of the plan's task dependencies |
